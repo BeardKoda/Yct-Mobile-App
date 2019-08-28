@@ -10,66 +10,30 @@ import React, {Fragment} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
-  View,
   Text,
-  TextInput,
-  Button,
+  View,
   StatusBar,
 } from 'react-native';
-
+import Login from './src/pages/login'
 
 const App = () => {
   return (
-    <ScrollView style={styles.Body}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Text style={styles.LoginText}>
-          Login
-        </Text>
-        <View style={styles.LoginForm}>
-          <TextInput style={styles.textBox} placeholder='Username' />
-          <TextInput style={styles.textBox} placeholder='Password' />
-          <Button 
-            style={styles.SubmitBtn}
-            title="Submit"
-          />
-        </View>
-      </SafeAreaView>
-    </ScrollView>
+    <View style={styles.container}>
+      <StatusBar 
+      backgroundColor="#008b00"
+      barStyle="dark-content" />
+      <Login />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  Body:{
-    backgroundColor:'#eee'
+  container:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'#41c300',
   },
-  textBox:{
-    padding:10,
-    borderColor: "#000",
-    borderRadius:3,
-    borderWidth:1,
-    marginBottom:10
-  },
-  SubmitBtn:{
-    alignContent:"center",
-    padding:20,
-    width:50,
-    color:'#efef',
-    marginBottom:10
-  },
-  LoginText:{
-    paddingTop: 100,
-    fontSize:47,
-    textAlign: "center"  
-  },
-  LoginForm:{
-    flex: 1, 
-    padding: 20,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignContent: "center",
-  }
 });
 
 export default App;
