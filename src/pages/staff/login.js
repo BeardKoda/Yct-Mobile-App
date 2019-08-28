@@ -19,7 +19,7 @@ const Login = () => {
                 <Text style={styles.MainText}>Student's Portal</Text>
             </View>
             <View style={styles.loginForm}>
-                <TextInput placeholder="Matric No" style={styles.inputBox} placeholderTextColor='#ffffff' 
+                <TextInput placeholder="Login ID" style={styles.inputBox} placeholderTextColor='#ffffff' 
                 underlineColorAndroid='rgba(0,0,0,0)'/>
                 <TextInput placeholder="Password" style={styles.inputBox}
                 secureTextEntry={true} 
@@ -30,7 +30,7 @@ const Login = () => {
                 </TouchableOpacity> 
             </View>
             <View style={styles.StaffLogin}>
-                <Text style={styles.staffLoginText}>Are You a Staff?</Text> 
+                <Text style={styles.staffLoginText}>Are You a Student?</Text> 
                 <Text style={styles.btnStaffLogin}>  Sigin in</Text>
             </View>
         </View>

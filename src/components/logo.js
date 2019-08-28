@@ -25,9 +25,9 @@ const Logo = () => {
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
+        flexGrow:1,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'flex-end'
     },  
     Image:{
         width:100,
