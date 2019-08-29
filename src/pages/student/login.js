@@ -6,14 +6,14 @@
  * @flow
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
-import Logo from '../components/logo';
+import Logo from '../../components/logo';
 
-
-const Login = () => {
-    return(
-        <View style={styles.container}>
+export default class StudLogin extends Component { 
+    render() {
+        return (
+            <View style={styles.container}>
             <Logo/>
             <View style={styles.Main}>
                 <Text style={styles.MainText}>Student's Portal</Text>
@@ -29,19 +29,22 @@ const Login = () => {
                     <Text  style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity> 
             </View>
-            <View style={styles.StaffLogin}>
+            <View style={styles.StaffLogin}> 
                 <Text style={styles.staffLoginText}>Are You a Staff?</Text> 
-                <Text style={styles.btnStaffLogin}>  Sigin in</Text>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('StaffLogin')}>
+                    <Text style={styles.btnStaffLogin}>Sigin in</Text>
+                </TouchableOpacity>
             </View>
-        </View>
-    );
-};
-
+        </View> 
+        );
+    }
+}
 const styles = StyleSheet.create({
     container:{
         flexGrow:1,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        backgroundColor:'#008b00'
     },  
     inputBox:{
         width:300,
@@ -93,5 +96,3 @@ const styles = StyleSheet.create({
         fontWeight:'800'
     },
 });
-
-export default Login;

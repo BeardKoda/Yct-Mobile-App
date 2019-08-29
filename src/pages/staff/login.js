@@ -8,15 +8,15 @@
 
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
-import Logo from '../components/logo';
+import Logo from '../../components/logo';
 
 
-const Login = () => {
+const StaffLogin = () => {
     return(
         <View style={styles.container}>
             <Logo/>
             <View style={styles.Main}>
-                <Text style={styles.MainText}>Student's Portal</Text>
+                <Text style={styles.MainText}>Staff's Portal</Text>
             </View>
             <View style={styles.loginForm}>
                 <TextInput placeholder="Login ID" style={styles.inputBox} placeholderTextColor='#ffffff' 
@@ -29,9 +29,9 @@ const Login = () => {
                     <Text  style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity> 
             </View>
-            <View style={styles.StaffLogin}>
-                <Text style={styles.staffLoginText}>Are You a Student?</Text> 
-                <Text style={styles.btnStaffLogin}>  Sigin in</Text>
+            <View style={styles.studLogin}>
+                <Text style={styles.studLoginText}>Are You a Student?</Text> 
+                <Text style={styles.btnStudLogin}>  Sigin in</Text>
             </View>
         </View>
     );
@@ -66,18 +66,18 @@ const styles = StyleSheet.create({
     loginForm:{
         padding:20
     },
-    StaffLogin:{
+    studLogin:{
         flexGrow:1,
         alignItems:'flex-end',
         justifyContent:'center',
         paddingVertical:16,
         flexDirection:'row'
     },
-    staffLoginText:{
+    studLoginText:{
         color:'#ffffff',
         fontSize:18
     },
-    btnStaffLogin:{
+    btnStudLogin:{
         fontSize:16,
         fontWeight:'500',
         color:'#edde0a'
@@ -94,4 +94,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Login;
+export default StaffLogin;

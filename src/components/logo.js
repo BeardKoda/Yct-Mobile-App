@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     container:{
         flexGrow:1,
         alignItems:'center',
-        justifyContent:'flex-end'
+        justifyContent:'center'
     },  
     Image:{
         width:100,

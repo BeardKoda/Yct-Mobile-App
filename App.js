@@ -6,34 +6,41 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-} from 'react-native';
-import Login from './src/pages/login'
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+import SplashScreen from './src/components/splashscreen';
+import Fade from './src/components/fad';
+import Routes from './src/Routes'
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <StatusBar 
-      backgroundColor="#008b00"
-      barStyle="dark-content" />
-      <Login />
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container:{
-    flexGrow:1,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'#41c300',
-  },
-});
-
-export default App;
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isLoading: true }
+  }
+  render() {
+    if (this.state.isLoading) {
+      return <SplashScreen />;
+    }
+  
+    return (  
+        <Routes />
+    );
+  }
+  performTimeConsumingTask = async() => {
+    return new Promise((resolve) =>
+      setTimeout(
+        () => { resolve('result') },
+        2000
+      )
+    );
+  }
+  async componentDidMount() {
+    // Preload data from an external API
+    // Preload data using AsyncStorage
+    const data = await this.performTimeConsumingTask();
+  
+    if (data !== null) {
+      this.setState({ isLoading: false });
+    }
+  }
+}
