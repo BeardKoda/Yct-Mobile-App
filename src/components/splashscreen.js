@@ -28,7 +28,7 @@ export default class SplashScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor="#fff"
+          backgroundColor="#009f00"
           bar-style="light-content"
         />
         <Animated.View
@@ -54,7 +54,7 @@ export default class SplashScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF",
+    backgroundColor: "#41c300",
     alignItems: "center",
     justifyContent: "center"
   },

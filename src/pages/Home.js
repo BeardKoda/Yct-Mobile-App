@@ -7,19 +7,41 @@
  */
 
 import React, { Component }  from 'react';
-import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import SmLogo from '../components/mlogo';
 import Logo from '../components/logo';
 
 export default class Home extends Component {
-    
+    //Navigation option to create menu in header
+  static navigationOptions = ({ navigation }) => {
+    return {
+      //Heading/title of the header
+      title:'News Feeds',
+      //Heading style
+      headerStyle: {
+        backgroundColor: '#41c300',
+      },
+      //Heading text color
+      headerTintColor: '#fff',
+      headerRight: (
+        <TouchableOpacity onPress={() => alert('Right Menu Clicked')}>
+            <SmLogo />
+        </TouchableOpacity>
+      ),
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.navigate('FirstPage')}>
+         {/* <Icon name='rowing'/> */}
+        </TouchableOpacity>
+      ),
+    };
+  };
     render() {
         return (
             <View style={styles.container}>
                 <StatusBar
-                    backgroundColor="#09af00"
+                    backgroundColor="#009f00"
                     bar-style="light-content"
                 />
-                <Logo />
                 <View style={styles.main}>
                     <Text style={styles.Text}>Heyoo</Text>
                 </View>
@@ -32,13 +54,17 @@ export default class Home extends Component {
 }
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:'#41c300',
+        backgroundColor:'#eee',
         flex:1,
         alignItems:'center',
         justifyContent:'center'
     },
+    title:{
+        color:'#000',
+        
+    },
     Text:{
-        color:'#fff',
+        color:'#000',
         fontSize:18
     },
     main:{

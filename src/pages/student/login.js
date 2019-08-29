@@ -10,7 +10,12 @@ import React, {Component} from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Logo from '../../components/logo';
 
-export default class StudLogin extends Component { 
+export default class StudLogin extends Component {  
+    static navigationOptions = ({ navigation }) => {
+        return {
+            header: null
+        }
+    }
     render() {
         return (
             <View style={styles.container}>
