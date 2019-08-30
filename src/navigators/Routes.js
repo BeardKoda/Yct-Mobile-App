@@ -6,14 +6,12 @@
  * @flow
  */
 
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createDrawerNavigator,  createAppContainer } from "react-navigation";
 import Home from './pages/Home';
 import About from './pages/About';
 import StudLogin from './pages/student/login'
-import Fade from './components/fad';
 
 const AppNavigator = createStackNavigator({
-    
     Home:{
       screen:Home
     },
@@ -38,7 +36,7 @@ const AppNavigator = createStackNavigator({
             // header: null
           },
   });
-
+// const Routes = AppNavigator;
 const Routes = createAppContainer(AppNavigator);
 
 export default Routes;

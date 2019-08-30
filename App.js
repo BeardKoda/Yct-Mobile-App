@@ -7,10 +7,8 @@
  */
 
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
 import SplashScreen from './src/components/splashscreen';
-import Fade from './src/components/fad';
-import Routes from './src/Routes'
+import MainApp from './src/Main';
 
 export default class App extends Component {
   constructor(props) {
@@ -18,12 +16,12 @@ export default class App extends Component {
     this.state = { isLoading: true }
   }
   render() {
-    if (this.state.isLoading) {
-      return <SplashScreen />;
-    }
+    // if (this.state.isLoading) {
+    //   return <SplashScreen />;
+    // }
   
     return (  
-        <Routes />
+        <MainApp />
     );
   }
   performTimeConsumingTask = async() => {

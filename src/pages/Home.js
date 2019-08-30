@@ -7,9 +7,9 @@
  */
 
 import React, { Component }  from 'react';
-import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, StatusBar, TouchableOpacity, Button} from 'react-native';
 import SmLogo from '../components/mlogo';
-import Logo from '../components/logo';
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default class Home extends Component {
     //Navigation option to create menu in header
@@ -29,8 +29,13 @@ export default class Home extends Component {
         </TouchableOpacity>
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('FirstPage')}>
-         {/* <Icon name='rowing'/> */}
+        <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
+           <Icon
+                name={Platform.OS === "ios" ? "ios-add" : "md-menu"}
+                color="#fff"
+                size={30}
+                style={styles.Icon}
+            />
         </TouchableOpacity>
       ),
     };
@@ -46,7 +51,9 @@ export default class Home extends Component {
                     <Text style={styles.Text}>Heyoo</Text>
                 </View>
                 <View style={styles.main}>
-                    <Text style={styles.Text}>Heyoo</Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')}>
+                        <Text>Home</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -58,6 +65,9 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:'center',
         justifyContent:'center'
+    },
+    Icon:{
+        marginLeft:10
     },
     title:{
         color:'#000',

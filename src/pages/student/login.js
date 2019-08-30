@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Logo from '../../components/logo';
@@ -35,10 +27,9 @@ export default class StudLogin extends Component {
                 </TouchableOpacity> 
             </View>
             <View style={styles.StaffLogin}> 
-                <Text style={styles.staffLoginText}>Are You a Staff?</Text> 
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('StaffLogin')}>
-                    <Text style={styles.btnStaffLogin}>Sigin in</Text>
-                </TouchableOpacity>
+                <TouchableOpacity style={styles.btnStaffLogin} onPress={() => this.props.navigation.goBack(null)}>
+                    <Text  style={styles.StaffLoginText}>Back</Text>
+                </TouchableOpacity> 
             </View>
         </View> 
         );

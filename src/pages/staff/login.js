@@ -1,25 +1,22 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Logo from '../../components/logo';
 
-
-const StaffLogin = () => {
-    return(
-        <View style={styles.container}>
+export default class StaffLogin extends Component {  
+    static navigationOptions = ({ navigation }) => {
+        return {
+            header: null
+        }
+    }
+    render() {
+        return (
+            <View style={styles.container}>
             <Logo/>
             <View style={styles.Main}>
                 <Text style={styles.MainText}>Staff's Portal</Text>
             </View>
             <View style={styles.loginForm}>
-                <TextInput placeholder="Login ID" style={styles.inputBox} placeholderTextColor='#ffffff' 
+                <TextInput placeholder="Matric No" style={styles.inputBox} placeholderTextColor='#ffffff' 
                 underlineColorAndroid='rgba(0,0,0,0)'/>
                 <TextInput placeholder="Password" style={styles.inputBox}
                 secureTextEntry={true} 
@@ -29,19 +26,21 @@ const StaffLogin = () => {
                     <Text  style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity> 
             </View>
-            <View style={styles.studLogin}>
-                <Text style={styles.studLoginText}>Are You a Student?</Text> 
-                <Text style={styles.btnStudLogin}>  Sigin in</Text>
+            <View style={styles.StaffLogin}> 
+                <TouchableOpacity style={styles.btnStaffLogin} onPress={() => this.props.navigation.goBack(null)}>
+                    <Text  style={styles.StaffLoginText}>Back</Text>
+                </TouchableOpacity> 
             </View>
-        </View>
-    );
-};
-
+        </View> 
+        );
+    }
+}
 const styles = StyleSheet.create({
     container:{
         flexGrow:1,
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        backgroundColor:'#008b00'
     },  
     inputBox:{
         width:300,
@@ -66,18 +65,18 @@ const styles = StyleSheet.create({
     loginForm:{
         padding:20
     },
-    studLogin:{
+    StaffLogin:{
         flexGrow:1,
         alignItems:'flex-end',
         justifyContent:'center',
         paddingVertical:16,
         flexDirection:'row'
     },
-    studLoginText:{
+    staffLoginText:{
         color:'#ffffff',
         fontSize:18
     },
-    btnStudLogin:{
+    btnStaffLogin:{
         fontSize:16,
         fontWeight:'500',
         color:'#edde0a'
@@ -93,5 +92,3 @@ const styles = StyleSheet.create({
         fontWeight:'800'
     },
 });
-
-export default StaffLogin;
