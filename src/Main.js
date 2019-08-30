@@ -6,6 +6,7 @@
  * @flow
  */
 import React from 'react';
+import { SafeAreaView, DrawerItems, ScrollView, Text } from "react-native";
 import { createSwitchNavigator, createDrawerNavigator, createBottomTabNavigator, createAppContainer, createStackNavigator } from "react-navigation";
 import Home from './pages/Home';
 import About from './pages/About';
@@ -14,6 +15,7 @@ import {TouchableOpacity} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import StudLogin from './pages/student/login';
 import StaffLogin from './pages/staff/login';
+import SideMenu from './components/drawerComponent';
 
 const AppTabNavigator = createBottomTabNavigator({
   Home:Home,
@@ -65,6 +67,8 @@ const AppDrawerNavigator = createDrawerNavigator({
   StaffLogin:{
     screen:StaffLogin
   }
+},{
+  contentComponent: SideMenu
 });
 
 const AppNavigator = createSwitchNavigator({

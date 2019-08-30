@@ -1,0 +1,55 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
+
+import { createDrawerNavigator, createAppContainer } from "react-navigation";
+import StudLogin from '../pages/student/login'
+
+    //Navigation option to create menu in header
+    static navigationOptions = ({ navigation }) => {
+      return {
+        //Heading/title of the header
+        title:'News Feeds',
+        //Heading style
+        headerStyle: {
+          backgroundColor: '#41c300',
+        },
+        //Heading text color
+        headerTintColor: '#fff',
+        headerRight: (
+          <TouchableOpacity onPress={() => alert('Right Menu Clicked')}>
+              <SmLogo />
+          </TouchableOpacity>
+        ),
+        headerLeft: (
+          <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
+             <Icon
+                  name={Platform.OS === "ios" ? "ios-add" : "md-menu"}
+                  color="#fff"
+                  size={30}
+                  style={styles.Icon}
+              />
+          </TouchableOpacity>
+        ),
+      };
+    };
+const DrawerNavigator = createDrawerNavigator(
+    {
+      StudLogin: StudLogin,
+    },
+    {
+      hideStatusBar: true,
+      drawerBackgroundColor: 'rgba(255,255,255,.9)',
+      overlayColor: '#6b52ae',
+      contentOptions: {
+        activeTintColor: '#fff',
+        activeBackgroundColor: '#6b52ae',
+      },
+    }
+  );
+  
+  export default drawer = createAppContainer(DrawerNavigator);

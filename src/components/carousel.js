@@ -5,38 +5,57 @@
  * @format
  * @flow
  */
+import React, { Component }from 'react';
+import { StyleSheet,Text, Image, View,SafeAreaView} from 'react-native';
+import Carousel from 'react-native-snap-carousel';
 
-import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image
-} from 'react-native';
-
-const carsousel = () => {
-    return(
-        <View style={styles.container}>
-            <Image style={styles.Image} source={require('../assets/logo.png')}/>
-            <Text style={styles.LogoText}>Yaba College of Technology</Text>
-        </View>
-    );
-};
-
-const styles = StyleSheet.create({
-    container:{
-        flexGrow:1,
-        alignItems:'center',
-        justifyContent:'center'
-    },  
-    Image:{
-        width:100,
-        height:100
-    },
-    LogoText:{
-        marginVertical:15,
-        fontSize:18,
-        color:'#ffffff'
+export class Homecarousel extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            carouselItems: [
+            {
+                title:"Item 1"
+            },
+            {
+                title:"Item 2"
+            },
+            {
+                title:"Item 3"
+            },
+            {
+                title:"Item 4"
+            },
+            {
+                title:"Item 5"
+            }
+        ]}
     }
+    _renderItem({item,index}){
+        return (
+            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>                 
+                <Text style={{color:'#fff'}} >{item.title}</Text>
+            </View>
+        )
+    }
+    render() {
+        return (
+        <SafeAreaView style={styles.container}>
+            <Carousel
+                    data={this.state.carouselItems}
+                    sliderWidth={250}
+                    itemWidth={250}
+                    renderItem={this._renderItem}
+                />
+        </SafeAreaView>
+        );
+    }
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor:'#131420',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
-export default carsousel;

@@ -8,38 +8,9 @@
 
 import React, { Component }  from 'react';
 import { StyleSheet, View, Text, StatusBar, TouchableOpacity, Button} from 'react-native';
-import SmLogo from '../components/mlogo';
-import Icon from "react-native-vector-icons/Ionicons";
+// import Homecarousel from '../components/carousel';
 
 export default class Home extends Component {
-    //Navigation option to create menu in header
-  static navigationOptions = ({ navigation }) => {
-    return {
-      //Heading/title of the header
-      title:'News Feeds',
-      //Heading style
-      headerStyle: {
-        backgroundColor: '#41c300',
-      },
-      //Heading text color
-      headerTintColor: '#fff',
-      headerRight: (
-        <TouchableOpacity onPress={() => alert('Right Menu Clicked')}>
-            <SmLogo />
-        </TouchableOpacity>
-      ),
-      headerLeft: (
-        <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-           <Icon
-                name={Platform.OS === "ios" ? "ios-add" : "md-menu"}
-                color="#fff"
-                size={30}
-                style={styles.Icon}
-            />
-        </TouchableOpacity>
-      ),
-    };
-  };
     render() {
         return (
             <View style={styles.container}>
