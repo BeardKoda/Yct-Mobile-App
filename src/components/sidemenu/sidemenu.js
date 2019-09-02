@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import styles from './sidemenu.style'
 import {NavigationActions} from 'react-navigation';
-import {ScrollView, Text, View} from 'react-native';
-import SmLogo from './mlogo';
+import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
+import SmLogo from '../logo/mlogo';
 import Icon from "react-native-vector-icons/Ionicons";
 
 class SideMenu extends Component {
@@ -23,53 +23,53 @@ class SideMenu extends Component {
                     <SmLogo style={{marginLeft:50}}/>
                 </View>
                 <View style={styles.navSectionStyle}>
-                    <View style={styles.navItemStyle}>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('Dashboard')}>
                         <Icon 
                             name={Platform.OS === "ios" ? "ios-add" : "md-paper"}
                             color="#000"
                             size={25}
                             style={styles.icon}
                         />
-                        <Text style={styles.navItemText} onPress={this.navigateToScreen('Home')}>
+                        <Text style={styles.navItemText}>
                             News Feeds
                         </Text>
-                    </View>
-                    <View style={styles.navItemStyle}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StudentLogin')}>
                         <Icon 
                             name={Platform.OS === "ios" ? "ios-add" : "md-person"}
                             color="#000"
                             size={20}
                             style={styles.icon}
                         />
-                        <Text style={styles.navItemText} onPress={this.navigateToScreen('Home')}>
+                        <Text style={styles.navItemText}>
                             Student's Portal
                         </Text>
-                    </View>
-                    <View style={styles.navItemStyle}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StaffLogin')}>
                         <Icon 
                             name={Platform.OS === "ios" ? "ios-add" : "md-person"}
                             color="#000"
                             size={20}
                             style={styles.icon}
                         />
-                        <Text style={styles.navItemText} onPress={this.navigateToScreen('Home')}>
+                        <Text style={styles.navItemText}>
                             Staff's Portal
                         </Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
           </View>
         </ScrollView>
-        <View style={styles.footerContainer}>
+        <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToScreen('Dashboard')}>
             <Icon 
                 name={Platform.OS === "ios" ? "ios-add" : "md-log-out"}
                 color="#000"
                 size={25}
                 style={styles.icon}
             />
-            <Text style={styles.navItemText} onPress={this.navigateToScreen('Home')}>
+            <Text style={styles.navItemText}>
                 Sign Out
             </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     );
   }

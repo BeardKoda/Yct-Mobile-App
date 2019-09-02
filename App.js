@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import SplashScreen from './src/components/splashscreen';
+import SplashScreen from './src/components/splashscreen/splashscreen';
 import MainApp from './src/Main';
 
 export default class App extends Component {
@@ -15,23 +15,26 @@ export default class App extends Component {
     super(props);
     this.state = { isLoading: true }
   }
+
   render() {
-    // if (this.state.isLoading) {
-    //   return <SplashScreen />;
-    // }
+    if (this.state.isLoading) {
+      return <SplashScreen />;
+    }
   
     return (  
         <MainApp />
     );
   }
+
   performTimeConsumingTask = async() => {
     return new Promise((resolve) =>
       setTimeout(
         () => { resolve('result') },
-        2000
+        5000
       )
     );
   }
+
   async componentDidMount() {
     // Preload data from an external API
     // Preload data using AsyncStorage
@@ -41,4 +44,5 @@ export default class App extends Component {
       this.setState({ isLoading: false });
     }
   }
+  
 }

@@ -17,7 +17,7 @@ import {
 const SmLogo = () => {
     return(
         <View style={styles.container}>
-            <Image style={styles.Image} source={require('../assets/logo.png')}/>
+            <Image style={styles.Image} source={require('../../assets/logo.png')}/>
         </View>
     );
 };

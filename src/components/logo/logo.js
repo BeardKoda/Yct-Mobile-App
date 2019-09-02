@@ -17,7 +17,7 @@ import {
 const Logo = () => {
     return(
         <View style={styles.container}>
-            <Image style={styles.Image} source={require('../assets/logo.png')}/>
+            <Image style={styles.Image} source={require('../../assets/logo.png')}/>
             <Text style={styles.LogoText}>Yaba College of Technology</Text>
         </View>
     );
