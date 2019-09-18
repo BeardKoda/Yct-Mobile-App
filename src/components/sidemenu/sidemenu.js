@@ -7,12 +7,45 @@ import SmLogo from '../logo/mlogo';
 import Icon from "react-native-vector-icons/Ionicons";
 
 class SideMenu extends Component {
+  state = {
+    isLoggedIn: false
+  }
   navigateToScreen = (route) => () => {
     const navigateAction = NavigationActions.navigate({
       routeName: route
     });
     this.props.navigation.dispatch(navigateAction);
   }
+  isLoggedMenu(){
+    // if (!isLoggedIn) {
+      return (
+          <View>
+            <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StudentLogin')}>
+                <Icon 
+                    name={Platform.OS === "ios" ? "ios-add" : "md-person"}
+                    color="#000"
+                    size={20}
+                    style={styles.icon}
+                />
+                <Text style={styles.navItemText}>
+                    Student's Portal
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StaffLogin')}>
+            <Icon 
+                name={Platform.OS === "ios" ? "ios-add" : "md-person"}
+                color="#000"
+                size={20}
+                style={styles.icon}
+            />
+            <Text style={styles.navItemText}>
+                Staff's Portal
+            </Text>
+        </TouchableOpacity> 
+          </View>
+      );
+    // }
+  } 
 
   render () {
     return (
@@ -34,28 +67,7 @@ class SideMenu extends Component {
                             News Feeds
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StudentLogin')}>
-                        <Icon 
-                            name={Platform.OS === "ios" ? "ios-add" : "md-person"}
-                            color="#000"
-                            size={20}
-                            style={styles.icon}
-                        />
-                        <Text style={styles.navItemText}>
-                            Student's Portal
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StaffLogin')}>
-                        <Icon 
-                            name={Platform.OS === "ios" ? "ios-add" : "md-person"}
-                            color="#000"
-                            size={20}
-                            style={styles.icon}
-                        />
-                        <Text style={styles.navItemText}>
-                            Staff's Portal
-                        </Text>
-                    </TouchableOpacity>
+                    {this.isLoggedMenu()}
                 </View>
           </View>
         </ScrollView>

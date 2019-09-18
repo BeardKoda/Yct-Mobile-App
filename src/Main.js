@@ -114,13 +114,14 @@ const AppDrawerNavigator = createDrawerNavigator({
     screen:StaffLogin
   }
 },{
+  initialRouteName:'StudentLogin',
   contentComponent: SideMenu
 });
 
-const AppNavigator = createSwitchNavigator({
-  Home: { screen: Home },
-  Dashboard : {screen:AppDrawerNavigator}
-});
+// const AppNavigator = createSwitchNavigator({
+//   Home: { screen: Home },
+//   Dashboard : {screen:AppDrawerNavigator}
+// });
 
 const MainApp = createAppContainer(AppDrawerNavigator);
 
