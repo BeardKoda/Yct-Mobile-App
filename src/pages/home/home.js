@@ -1,47 +1,52 @@
 import React, { Component }  from 'react';
-import { View, ScrollView, Text, StatusBar, TouchableOpacity, Image} from 'react-native';
-import  styles  from './home.style'
-import { Homecarousel } from '../../components/feeds/carousel';
-import { Single } from '../../components/feeds/single';
+import { View, ScrollView, Text, StatusBar, TouchableOpacity, Image, AsyncStorage} from 'react-native';
+import  styles  from './home.style';
+import { connect } from 'react-redux';
+import menu from './comp/data';
+import Box from "./comp/box";
 
-export default class Home extends Component {
-    
+class Home extends Component {
+    static navigationOptions = {
+        title: 'Dashboard',
+    };
+    menu = menu;
+    constructor(props){
+        super(props);
+        // if(!this.props.auths.isLoggedIn){
+        //     console.log("not loggedin")
+        // }
+    }
+    componentDidMount(){
+        // console.log(this.props.auths)
+    }
+
     render() {
         return (
-            <ScrollView>
-                <View style={styles.container}>
-                    <StatusBar
+            <View style={styles.container}>
+                <StatusBar
                         backgroundColor="#009f00"
                         bar-style="light-content"
                     />
-                    <View style={styles.main}>
-                        <Homecarousel />
-                    </View>
-                    <View style={styles.main}>
-                        <Text style={styles.title}>Cradle Of Higher Learning In Nigeria</Text>
-                        <Single />
-                        <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('Departments')}>
-                            <Text style={styles.buttonText}>View More</Text>
-                        </TouchableOpacity>
-                    </View> 
-
-                    <View style={styles.news}>
-                        <Text style={styles.title}>News And Events</Text>
-                        <Single />
-                        <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('Departments')}>
-                            <Text style={styles.buttonText}>View More</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={styles.departments}>
-                        <Text style={styles.title}>Schools and Departments</Text>
-                        <Single />
-                        <TouchableOpacity style={styles.buttonContainer} onPress={() => this.props.navigation.navigate('Departments')}>
-                            <Text style={styles.buttonText}>View More</Text>
-                        </TouchableOpacity>
-                    </View>
+                <View>
+                {this.menu.map((data)=>
+                    (
+                        <Box  key={data.id} nav={this.props.navigation}
+                        title={data.title} 
+                        subtitle={data.subtitle} 
+                        icon={data.icon} 
+                        color={data.color}
+                        link="portal"/>
+                    ))
+                }
                 </View>
-            </ScrollView>
+            </View>
         );
     }
 }
+const mapStateToProps = state => {
+    return {
+        auths: state.authReducer
+    };
+}
+
+export default connect(mapStateToProps)(Home);

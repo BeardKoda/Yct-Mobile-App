@@ -23,7 +23,7 @@ class SideMenu extends Component {
                     <SmLogo style={{marginLeft:50}}/>
                 </View>
                 <View style={styles.navSectionStyle}>
-                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('Dashboard')}>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('App')}>
                         <Icon 
                             name={Platform.OS === "ios" ? "ios-add" : "md-paper"}
                             color="#000"
@@ -31,35 +31,24 @@ class SideMenu extends Component {
                             style={styles.icon}
                         />
                         <Text style={styles.navItemText}>
-                            News Feeds
+                            Media
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StudentLogin')}>
                         <Icon 
-                            name={Platform.OS === "ios" ? "ios-add" : "md-person"}
+                            name={Platform.OS === "ios" ? "ios-add" : "md-settings"}
                             color="#000"
                             size={20}
                             style={styles.icon}
                         />
                         <Text style={styles.navItemText}>
-                            Student's Portal
-                        </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StaffLogin')}>
-                        <Icon 
-                            name={Platform.OS === "ios" ? "ios-add" : "md-person"}
-                            color="#000"
-                            size={20}
-                            style={styles.icon}
-                        />
-                        <Text style={styles.navItemText}>
-                            Staff's Portal
+                            Settings
                         </Text>
                     </TouchableOpacity>
                 </View>
           </View>
         </ScrollView>
-        <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToScreen('Dashboard')}>
+        <TouchableOpacity style={styles.footerContainer} onPress={ () => this.props.navigation.navigate('Auth')}>
             <Icon 
                 name={Platform.OS === "ios" ? "ios-add" : "md-log-out"}
                 color="#000"

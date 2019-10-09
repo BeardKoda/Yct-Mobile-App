@@ -30,7 +30,7 @@ export default {
         borderColor: '#d6d7da',
     },
     logo:{
-        height:100, 
-        backgroundColor:'#41c300'
+        height:300, 
+        backgroundColor:'#006600'
     }
   };

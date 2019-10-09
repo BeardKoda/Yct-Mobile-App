@@ -24,7 +24,7 @@ const AppNavigator = createStackNavigator({
       animationType: 'slide-down'
     }
   },{
-          initialRouteName: "Home",
+          initialRouteName: "StudLogin",
           defaultNavigationOptions: {
             // headerStyle: {
             //   backgroundColor: '#f4511e',

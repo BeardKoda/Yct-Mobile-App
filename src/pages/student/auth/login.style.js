@@ -5,6 +5,13 @@ export default {
         justifyContent:'center',
         backgroundColor:'#006600'
     },  
+    container2:{
+        flexGrow:1,
+        alignItems:'center',
+        justifyContent:'center',
+        opacity:0.6,
+        backgroundColor:'#006600'
+    },  
     inputBox:{
         width:300,
         backgroundColor:'#008b00',
@@ -14,6 +21,9 @@ export default {
         color:'#ffffff',
         marginVertical:10
     },
+    spinnerTextStyle: {
+        color: '#FFF'
+      },
     buttonContainer:{
         backgroundColor: '#edde0a',
         marginVertical:10,
