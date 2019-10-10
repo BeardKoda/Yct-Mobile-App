@@ -14,6 +14,7 @@ import {TouchableOpacity} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import StudLogin from './pages/student/auth/login';
 import Portal from './pages/portal/portal';
+import Chat from './pages/chats/chat';
 import SideMenu from './components/sidemenu/sidemenu';
 
 const AppTabNavigator = createMaterialTopTabNavigator({
@@ -57,7 +58,9 @@ const AppTabNavigator = createMaterialTopTabNavigator({
 
 const AppStackNavigator = createStackNavigator({
   Home:Home,
-  Portal:About
+  Portal:Portal,
+  Chat:Chat,
+  Setting:About
 },{
   defaultNavigationOptions:({navigation})=>{
         return{

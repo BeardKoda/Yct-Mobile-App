@@ -16,7 +16,8 @@ export default {
         fontSize:14,
     },
     navSectionStyle: {
-      Color: 'lightgrey'
+      Color: 'lightgrey',
+      background:'#000'
     },
     icon:{
         marginTop:2,

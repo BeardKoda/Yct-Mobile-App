@@ -1,7 +1,7 @@
 import {auth, database, provider} from "../../config/firebase";
 import * as t from './actionTypes';
 
-const FIREBASE_REF_MESSAGES = firebaseService.database().ref('Messages')
+const FIREBASE_REF_MESSAGES = firebaseService.database().ref('Messages')    
 const FIREBASE_REF_MESSAGES_LIMIT = 20
 
 export const sendMessage = message => {

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import styles from './sidemenu.style'
 import {NavigationActions} from 'react-navigation';
 import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
+import ProfileLogo from '../logo/profile';
 import SmLogo from '../logo/mlogo';
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -20,21 +21,32 @@ class SideMenu extends Component {
         <ScrollView>
           <View>
                 <View style={styles.logo}>
-                    <SmLogo style={{marginLeft:50}}/>
+                    <ProfileLogo style={{marginLeft:50}}/>
                 </View>
                 <View style={styles.navSectionStyle}>
-                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('App')}>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('Home')}>
                         <Icon 
-                            name={Platform.OS === "ios" ? "ios-add" : "md-paper"}
+                            name={Platform.OS === "ios" ? "ios-home" : "md-home"}
                             color="#000"
                             size={25}
                             style={styles.icon}
                         />
                         <Text style={styles.navItemText}>
-                            Media
+                            Dashboard
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('StudentLogin')}>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('Home')}>
+                        <Icon 
+                            name={Platform.OS === "ios" ? "ios-person" : "md-person"}
+                            color="#000"
+                            size={25}
+                            style={styles.icon}
+                        />
+                        <Text style={styles.navItemText}>
+                            Profile
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.navItemStyle} onPress={this.navigateToScreen('Portal')}>
                         <Icon 
                             name={Platform.OS === "ios" ? "ios-add" : "md-settings"}
                             color="#000"

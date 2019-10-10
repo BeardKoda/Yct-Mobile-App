@@ -26,7 +26,7 @@ class Box extends Component {
                     marginVertical:10,
                     paddingVertical: 15,
                     borderRadius:5
-                }}  onPress={()=> this.props.nav.navigate('Portal')}>
+                }}  onPress={()=> this.props.nav.navigate(this.props.link)}>
                     <View style={{padding:20, flexDirection:'row'}}>
                         <View style={{flex:1}}>
                             <Text style={styles.buttonText}>{this.props.title}</Text>

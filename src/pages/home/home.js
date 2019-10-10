@@ -24,10 +24,13 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <StatusBar
-                        backgroundColor="#009f00"
+                        backgroundColor="#006600"
                         bar-style="light-content"
                     />
                 <View>
+                    <Text style={{textAlign:"center", fontSize:20, fontWeight:"900"}}>
+                        Welcome Back, Joshua
+                    </Text>
                 {this.menu.map((data)=>
                     (
                         <Box  key={data.id} nav={this.props.navigation}
@@ -35,7 +38,7 @@ class Home extends Component {
                         subtitle={data.subtitle} 
                         icon={data.icon} 
                         color={data.color}
-                        link="portal"/>
+                        link={data.link}/>
                     ))
                 }
                 </View>

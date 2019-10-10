@@ -1,26 +1,28 @@
-import React, {Component} from 'react';
-import {WebView} from 'react-native';
+import React, { Component }  from 'react';
+import { View, Text } from 'react-native'
+import { WebView } from 'react-native-webview';
 
-export default class portal extends Component {
-  static navigationOptions = {
-      title: 'Portal',
-  };
-  menu = menu;
-  constructor(props){
-      super(props);
-      // if(!this.props.auths.isLoggedIn){
-      //     console.log("not loggedin")
-      // }
-  }
-  componentDidMount(){
-      // console.log(this.props.auths)
-  }
-  render() {
-    return (
-      <WebView
-        source={{uri: 'https://google.com'}}
-        style={{marginTop: 20}}
-      />
-    );
-  }
+export default class Portal extends Component {
+    static navigationOptions = {
+        title: 'Portal',
+    };
+    displaySpinner() {
+      return (
+        <View>
+          <Text style={{fontSize:20}}>Loading</Text>
+        </View>
+      );
+    }
+
+    render() {
+        return (<WebView
+                    startInLoadingState={true}
+                    source={{uri: 'http://portal.yabatech.edu.ng/portalplus/'}}
+                    style={{marginTop: 0}}
+                    renderLoading={() => {
+                      return this.displaySpinner();
+                    }}
+                />
+        );
+    }
 }
