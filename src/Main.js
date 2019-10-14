@@ -82,7 +82,7 @@ const AppStackNavigator = createStackNavigator({
             headerLeft:(
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
               <Icon
-                  name={Platform.OS === "ios" ? "ios-add" : "md-menu"}
+                  name={Platform.OS === "ios" ? "ios-menu" : "md-menu"}
                   color="#fff"
                   size={30}
                   style={{marginLeft:10}}

@@ -17,7 +17,7 @@ import {
 const ProfileLogo = () => {
     return(
         <View style={styles.container}>
-            <Image style={styles.Image} source={require('../../assets/plogo.png')}/>
+            <Image style={styles.Image} source={require('../../assets/plogo2.png')}/>
             <Text style={styles.LogoText}>F/HD/17/321001234</Text>
             <Text style={styles.LogoSmText}>Computer Science</Text>
         </View>
